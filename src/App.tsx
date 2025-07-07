@@ -1,9 +1,6 @@
 
 import './App.css'
 import { Grid } from '@mui/material';
-import HeaderUI from './components/HeaderUI';
-import AlertUI from './components/AlertUI';
-import SelectorUI from './components/SelectorUI';
 import IndicatorUI from './components/IndicatorUI';
 import DataFetcher from './functions/DataFetcher';
 
