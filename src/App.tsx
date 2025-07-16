@@ -1,4 +1,4 @@
-import { Grid } from '@mui/material'; 
+import { Grid } from '@mui/material';
 
 import './App.css';
 import HeaderUI from './components/HeaderUI';
@@ -15,9 +15,13 @@ function App() {
 
   const dataFetcherOutput = DataFetcher(city);
 
+  if (dataFetcherOutput.error) {
+    console.error(dataFetcherOutput.error);
+  };
+
   return (
     <div>
-      
+
       <Grid container spacing={5} justifyContent="center" alignItems="center">
         {/* Encabezado */}
         <Grid size={{ xs: 12, md: 12 }}>
@@ -84,24 +88,24 @@ function App() {
         {/* <Grid size={{ xs: 12, md: 6 }} sx={{ display: { xs: 'none', md: 'block' } }}>
           <TableUI />
         </Grid> */}
-    
+
         {dataFetcherOutput.data && (
-        <>
-            <Grid size={{ xs: 12, md: 6}} > 
-            <ChartUI
+          <>
+            <Grid size={{ xs: 12, md: 6 }} >
+              <ChartUI
                 labels={dataFetcherOutput.data.hourly.time}
                 values1={dataFetcherOutput.data.hourly.temperature_2m}
                 values2={dataFetcherOutput.data.hourly.wind_speed_10m}
-            />
+              />
             </Grid>
-            <Grid size={{ xs: 12, md: 6}}>
-            <TableUI
+            <Grid size={{ xs: 12, md: 6 }}>
+              <TableUI
                 labels={dataFetcherOutput.data.hourly.time}
                 values1={dataFetcherOutput.data.hourly.temperature_2m}
                 values2={dataFetcherOutput.data.hourly.wind_speed_10m}
-            />
+              />
             </Grid>
-        </>
+          </>
         )}
 
 
